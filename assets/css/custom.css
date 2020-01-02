@@ -26,11 +26,34 @@ img.home-logo {
 .nav li a { 
     color: #000;
 }
+.nav li a:hover { 
+    color: #888;
+}
 
 .social-link svg,
 .rss-button svg {
     fill: #000;
 }
+
+/* Home */
+.featured-posts-header {
+    margin-left: 20px;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+@media (min-width: 795px) {
+    .post-card-large .post-card-image-link {
+        min-height: 310px;
+    }
+
+    .post-card-large .post-card-content { 
+        flex: 0 1 50%;
+    }
+}
+
+
 
 /*Custom archive for posts*/
 li.post-list-li a, 
@@ -43,4 +66,29 @@ li.post-list-li a,
 .post-full-content a {
     color: unset;
     box-shadow: unset;
+}
+
+/* .post-full-image {
+    display: none;
+} */
+
+.custom-featured-img-container {
+    max-width: 250px;
+    align-self: start;
+}
+
+img.lazy-img {
+    width: 100%;
+}
+
+/*Footer*/
+.site-footer,
+.site-footer-content,
+.site-footer-content a {
+    color: #000;
+    background: #fff;
+}
+
+.site-footer-content a:hover {
+    color: #888;
 }
