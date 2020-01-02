@@ -1,0 +1,139 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+<header class="site-home-header">
+    {{> header-background background=@site.cover_image}} {{!--Special header-image.hbs partial to generate the background image--}}
+        <div class="inner">
+            {{> "site-nav"}}
+            <div class="site-header-content">
+                <div class="mascot">
+                    <img class="home-logo" src="{{asset 'images/full-logo-pohatta.png' size="s"}}"/>
+                </div>
+                <h1 class="site-title">{{@site.title}}</h1>
+                <h2 class="site-description">{{@site.description}}</h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+        <div class="custom-post-feed">
+            <h2>Uusin kirjoitus</h2>
+            {{#get "posts" limit="1"}}
+                {{#foreach posts}}
+
+                    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                    {{> "post-card"}}
+
+                {{/foreach}}
+            {{/get}}
+        </div>
+        <div class="about">
+            <h2>P.Ohatta lyhyesti</h2>
+            <p>
+                Aloitin blogin 2013 ihmiskokeena kohti eläkettä eli taloudellista riippumattomuutta. 
+                Kuvittelin rahan tekevän onnelliseksi. Onneksi elämässä on kyse aivan muusta eikä 
+                säästäminen sulje pois rikasta elämää. Talouden lisäksi kirjoitan kaikesta minne uteliaisuuteni vie.
+            </p>
+            <p>
+                Kirjoitan satunnaisesti ja paras tapa pysyä kartalla uusista artikkeleista on 
+                <a href="https://www.pohatta.com/sisapiiri" target="_blank" >sisäpiiri</a>.
+                &nbsp;<a href="https://twitter.com/RahaPohatta" target="_blank" >Twitterissä</a> ja 
+                <a href="https://www.facebook.com/pohatta" target="_blank" >Facebookissa</a> käyn harvemmin. 
+                (<a href="https://www.pohatta.com/feed" target="_blank" >Feed</a>)
+            </p>
+            <h2>Blogin tarkoitus</h2>
+            <p>
+                Toivon, että tarinoitani lukemalla sinä saat uusia ajatuksia ja käytännöllisiä vinkkejä omalle matkallesi. 
+                En tiedä juuri mitään, mutta kokeilujen kautta pyrin olemaan vähemmän väärässä. Sinun pitää löytää oma tiesi, 
+                mutta tarinoideni kautta voit välttää tekemästä samoja virheitä.
+            </p>
+            <h2>Aloita näistä</h2>
+            <p>
+                Yksi artikkeli selittää olennaisimmat:&nbsp;
+                <a href="https://www.pohatta.com/620/pohatta-pahkinankuoressa" target="_blank" >P.Ohatta pähkinänkuoressa</a>. 
+                Vauhtiin päästyäsi <a href="https://www.pohatta.com/arkisto" target="_blank" >arkistosta</a> löydät kaikki tekstit.&nbsp;
+                Jos olet vasta tutustumassa talouteesi, aloita 
+                <a href="https://www.pohatta.com/category/talousremontti" target="_blank" >talousremontista</a>. 
+                Eniten mielipiteitä ovat herättäneet:
+            </p>
+            <ul>
+                <li><a href="https://www.pohatta.com/1348/paskavuoren-vanki-ja-minimalismi">Paskavuoren vanki ja minimalismi</a></li>
+                <li><a href="https://www.pohatta.com/532/vielakin-pahempi-taloudellinen-virheeni" target="_blank">Vieläkin pahempi taloudellinen virheeni</a></li>
+                <li><a href="https://www.pohatta.com/587/nollaveroteoria-sijoitusyhtio-eroon-veroista" target="_blank" >Nollaveroteoria &#8211; sijoitusyhtiö ja eroon tuloveroista</a></li>
+                <li><a href="https://www.pohatta.com/318/unelmista-totta" target="_blank" >Unelmista totta &#8211; opas unelmien saavuttamiseen</a></li>
+                <li><a href="https://www.pohatta.com/321/osinkosijoittaminen-vai-passiiviset-indeksirahastot" target="_blank" >Osinkosijoittaminen vai passiiviset indeksirahastot?</a></li>
+            </ul>
+            <p>
+                Kun kyllästyt minun tarinoihini, kannattaa suunnata <a href="https://www.pohatta.com/kirjasto" target="_blank" >kirjastoon</a>.
+            </p>
+            <p>
+                Nautinnollisia lukuhetkiä!
+            </p>
+        </div>
+    </div>
+</main>
+
+{{> site-header}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+
+    // NOTE: Scroll performance is poor in Safari
+    // - this appears to be due to the events firing much more slowly in Safari.
+    //   Dropping the scroll event and using only a raf loop results in smoother
+    //   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+        
+        var nav = document.querySelector('.site-nav-main .site-nav');
+        var feed = document.querySelector('.custom-post-feed');
+
+        var lastScrollY = window.scrollY;
+        var lastWindowHeight = window.innerHeight;
+        var lastDocumentHeight = $(document).height();
+        var ticking = false;
+
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            requestTick();
+        }
+
+        function onResize() {
+            lastWindowHeight = window.innerHeight;
+            lastDocumentHeight = $(document).height();
+            requestTick();
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(update);
+            }
+            ticking = true;
+        }
+
+        function update() {
+            var trigger = feed.getBoundingClientRect().top + window.scrollY;
+            var progressMax = lastDocumentHeight - lastWindowHeight;
+
+            // show/hide nav
+            if (lastScrollY >= trigger - 20) {
+                nav.classList.add('fixed-nav-active');
+            } else {
+                nav.classList.remove('fixed-nav-active');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize, false);
+
+        update();
+
+    });
+</script>
+{{/contentFor}}
