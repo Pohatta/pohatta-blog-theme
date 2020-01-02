@@ -8,6 +8,25 @@
     height: 45px;
 }
 
+/*Header & NAV*/
+.site-header-background,
+.site-nav-main {
+    background: #fff;
+}
+
+.site-header-background:not(.responsive-header-img) .site-nav-left-wrapper:after, .site-nav-main .site-nav-left-wrapper:after {
+    background: unset;
+}
+
+.nav li a { 
+    color: #000;
+}
+
+.social-link svg,
+.rss-button svg {
+    fill: #000;
+}
+
 /*Custom archive for posts*/
 li.post-list-li a, 
 .tag-span a {
