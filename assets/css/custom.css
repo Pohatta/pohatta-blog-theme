@@ -1,0 +1,16 @@
+
+/*Logo*/
+.site-nav-logo {
+    padding: 0;
+}
+
+.site-nav-logo img {
+    height: 45px;
+}
+
+/*Custom archive for posts*/
+li.post-list-li a, 
+.tag-span a {
+    box-shadow: unset;
+    color: #0086ce;
+}
