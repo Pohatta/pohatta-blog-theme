@@ -776,11 +776,10 @@ USAGE:
           var button = document.getElementById('search-btn');
           var form = document.getElementById('search-form');
 
-          if (button.tagName == 'INPUT' && button.type == 'submit') {
-            form.addEventListener('submit', function (e) {
-              e.preventDefault();
-            });
-          }
+          
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+          });
   
           ;
           button.addEventListener('click', function (e) {

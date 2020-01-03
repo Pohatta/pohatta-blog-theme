@@ -14,7 +14,7 @@
 
             {{!-- Show search only if javascript is allowed --}}
             <div class="nav-search js-allowed">
-                <form id="search-form">
+                <form id="search-form" onsubmit="event.preventDefault();">
                     <input id="search" placeholder="Etsi"></input>
                     <button id="search-btn" type="submit">{{> "icons/search"}}</button>
                 </form>
