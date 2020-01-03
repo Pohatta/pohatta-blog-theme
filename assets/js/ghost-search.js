@@ -639,7 +639,7 @@ USAGE:
         button: '',
         defaultValue: '',
         template: function template(result) {
-          var url = [location.protocol, '//', location.url].join('');
+          var url = [location.protocol, '//', window.location.host].join('');
           return '<a href="' + url + '/' + result.slug + '/">' + result.title + '</a>';
         },
         trigger: 'focus',

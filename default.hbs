@@ -131,6 +131,18 @@
             url: 'http://localhost:2368', // This is just a demo host. Replace the demo url with a real one. See Step 3.
             input:   '#search',
             results: '#search-result',
+            on: {
+                beforeFetch: function(){
+                    let resultsElement = document.getElementById('search-result');
+                    let e = document.createElement('div');
+                    e.innerHTML = '<img src="https://loading.io/spinners/spinner/index.ajax-spinner-preloader.svg">';
+                    resultsElement.appendChild(e.firstChild);
+                },
+                afterFetch: function(results){
+                    let resultsElement = document.getElementById('search-result');
+                    resultsElement.innerHTML = '';
+                }
+            },
             button: '#search-btn',
             options: {
             keys: [
@@ -146,13 +158,13 @@
                 },
             },
             limit: 8
-            })
+        })
     </script>
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
 
-    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{!-- Ghost outputs important scripts and data with this tag  - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
 
 </body>
