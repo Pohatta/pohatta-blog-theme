@@ -17,16 +17,3 @@ window.onload = function() {
         images[i].setAttribute('src',images[i].getAttribute('data-src'));
     }
 };
-
-changeFocus = function() {
-    var result = document.getElementById('search-result');
-    var input = document.getElementById('search');
-
-    if(result.classList.contains("focused")) {
-        result.classList
-    }
-    console.log(result);
-    console.log(input);
-
-};
-//

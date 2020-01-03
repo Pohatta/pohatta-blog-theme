@@ -91,7 +91,6 @@ into the {body} of the default.hbs template --}}
 var yearArray = new Array();
 var monthObj = new Object();
 $(".post-list-li").each(function() {
-    console.log($(this))
     var archivesYear = $(this).attr("year");
     var archivesMonth = $(this).attr("month");
     yearArray.push(archivesYear);

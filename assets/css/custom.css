@@ -30,7 +30,13 @@ p.home-intro {
 /*Logo*/
 .site-nav-logo {
     padding: 0;
-    margin-right: 16px;
+    margin-right: 20px;
+}
+
+@media (max-width: 500px) {
+    .site-nav-logo {
+        margin-right: 8px;
+    }
 }
 
 .site-nav-logo img {
@@ -68,6 +74,12 @@ p.home-intro {
     color: #888;
 }
 
+a.nextprev {
+    font-size: 32px;
+    margin: 0 7px;
+    height: 25px;
+    width: 25px;
+}
 
 .social-link svg,
 .rss-button svg {
@@ -80,24 +92,22 @@ form#search-form {
     display: flex;
     border: 1px solid #C7D0D4;
     border-radius: 5px;
-    margin: 0;
+    margin: 0 5px;
 }
 
 input#search {
     position: relative;
     display: flex;
-    width: 50px;
+    width: 150px;
     padding: 3px 10px;
     cursor: text;
     border: none;
 }
 
-input#search:focus { 
-    width: 150px;
-    -webkit-transition: width 1s ease-in-out;
-    -moz-transition: width 1s ease-in-out;
-    -o-transition: width 1s ease-in-out;
-    transition: width 1s ease-in-out;
+@media (max-width: 500px) {
+    input#search {
+        width: 80px;
+    }
 }
 
 div#search-result {
@@ -129,14 +139,16 @@ button#search-btn {
 }
 
 /* Home */
-
+.site-home-header {
+    z-index: 0;
+}
 .site-home-header .site-header-background {
-    margin-top: 50px;
+    margin-top: 55px;
 }
 
 .featured-posts-header {
-    margin-left: 20px;
-    width: 100%;
+    margin: auto;
+    width: 90%;
     display: block;
     text-align: center;
     margin-bottom: 40px;
@@ -176,10 +188,6 @@ button#search-btn {
     padding: 40px 0 5vw;
 
 }
-
-
-
-
 
 
 /*Custom archive for posts*/

@@ -16,10 +16,22 @@
             <div class="nav-search js-allowed">
                 <form id="search-form">
                     <input id="search" placeholder="Etsi"></input>
-                    <button id="search-btn" type="submit" onclick="changeFocus()">{{> "icons/search"}}</button>
+                    <button id="search-btn" type="submit">{{> "icons/search"}}</button>
                 </form>
             </div>
             <div class="nav-search js-deny"></div>
+
+            {{#is "post"}}
+                {{#post}}
+                    {{#prev_post}}
+                        <a href="{{url}}" class="nextprev">&lt;</a>
+                    {{/prev_post}}
+
+                    {{#next_post}}
+                        <a href="{{url}}" class="nextprev">&gt;</a>
+                    {{/next_post}}
+                {{/post}}
+            {{/is}}
 
         </div>
     </div>
