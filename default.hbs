@@ -131,18 +131,6 @@
             url: 'http://localhost:2368', // This is just a demo host. Replace the demo url with a real one. See Step 3.
             input:   '#search',
             results: '#search-result',
-            on: {
-                beforeFetch: function(){
-                    let resultsElement = document.getElementById('search-result');
-                    let e = document.createElement('div');
-                    e.innerHTML = '<img src="https://loading.io/spinners/spinner/index.ajax-spinner-preloader.svg">';
-                    resultsElement.appendChild(e.firstChild);
-                },
-                afterFetch: function(results){
-                    let resultsElement = document.getElementById('search-result');
-                    resultsElement.innerHTML = '';
-                }
-            },
             button: '#search-btn',
             options: {
             keys: [

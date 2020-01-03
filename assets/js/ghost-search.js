@@ -773,10 +773,11 @@ USAGE:
         }
   
         if (this.button != '') {
-          var button = document.querySelectorAll(this.button)[0];
-  
+          var button = document.getElementById('search-btn');
+          var form = document.getElementById('search-form');
+
           if (button.tagName == 'INPUT' && button.type == 'submit') {
-            button.closest('form').addEventListener("submit", function (e) {
+            form.addEventListener('submit', function (e) {
               e.preventDefault();
             });
           }
