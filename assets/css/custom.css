@@ -89,6 +89,7 @@ a.nextprev {
 /*Search*/
 
 form#search-form {
+    background-color: #fff;
     display: flex;
     border: 1px solid #888;
     border-radius: 5px;
@@ -97,11 +98,12 @@ form#search-form {
 
 @media (max-width: 500px) {
     form#search-form {
-        margin: 0 5px;
+        margin: 0 10px;
     }
 }
 
 input#search {
+    background-color: unset;
     position: relative;
     display: flex;
     width: 150px;
@@ -134,6 +136,7 @@ button#search-btn {
     background-color: unset;
     width: 30px;
     height: 30px;
+    margin: 0 5px 0 0;
 }
 
 #search-btn svg {
@@ -261,52 +264,38 @@ li.post-list-li a,
 }
 
 @media only screen and (prefers-color-scheme: dark) {
-
-    /* Dark colors
-    #fff = #090a0b
-    #000 = #fff 
-    */
     
-
-    .site-header-background,
     .site-nav-main {
-        background: #000;
-        color: #fff;
+        background: #141517;
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .site-header-background {
+        background: var(--darkmode);
+        color: rgba(255, 255, 255, 0.75);
     }
     
     .nav li a { 
-        color: #fff;
-    }
-    .nav li a:hover { 
-        color: #888;
+        color: rgba(255, 255, 255, 0.75);
     }
     
     .social-link svg,
     .rss-button svg {
-        fill: #fff;
+        fill: rgba(255, 255, 255, 0.75);
     }
     
     /*Search*/
+
     form#search-form {
-        display: flex;
-        border: 1px solid #888;
-        border-radius: 5px;
-        margin: 0 15px;
-    }
-    
-    div#search-result a{    
-        border-bottom: 1px solid #888;
+        background-color: var(--darkmode);
     }
     
     #search-btn svg {
-        fill: #fff;
-    }
-    #search-btn svg:hover {
-        fill: #888;
+        fill: rgba(255, 255, 255, 0.75);
     }
     
     .read-next {
-        background: #000;
+        background: var(--darkmode);
     }
     
     .read-next-card {
@@ -323,15 +312,11 @@ li.post-list-li a,
     .read-next-card-content li a,
     .read-next .post-card-primary-tag,
     .read-next .post-card-byline-content {
-        color: #fff;
+        color: rgba(255, 255, 255, 0.75);
     }
     
     .read-next-card-footer a {
-        border: 1px solid #fff;
-    }
-    .read-next-card-footer a:hover {
-        border: 1px solid #888;
-        color: #888;
+        border: 1px solid rgba(255, 255, 255, 0.75);
     }
     
     .read-next .static-avatar {
@@ -342,12 +327,8 @@ li.post-list-li a,
     .site-footer,
     .site-footer-content,
     .site-footer-content a {
-        color: #fff;
-        background: #000;
-    }
-    
-    .site-footer-content a:hover {
-        color: #888;
+        color: rgba(255, 255, 255, 0.75);
+        background: var(--darkmode);
     }
 
 }
