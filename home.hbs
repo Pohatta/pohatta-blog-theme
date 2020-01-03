@@ -4,15 +4,12 @@ into the {body} of the default.hbs template --}}
 
 <header class="site-home-header">
     {{> header-background background=@site.cover_image}} {{!--Special header-image.hbs partial to generate the background image--}}
-        <div class="inner">
-            {{> "site-nav"}}
-            <div class="site-header-content">
-                <div class="mascot">
-                    <img class="home-logo lazy-img" data-src="{{asset 'images/full-logo-pohatta.png' size="s"}}" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
-                </div>
-                <h1 class="site-title">{{@site.title}}</h1>
-                <h2 class="site-description">{{@site.description}}</h2>
+        <div class="site-header-content">
+            <div class="mascot">
+                <img class="home-logo lazy-img" data-src="{{asset 'images/full-logo-pohatta.png' size="s"}}" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
             </div>
+            <h1 class="site-title">{{@site.title}}</h1>
+            <h2 class="site-description">{{@site.description}}</h2>
         </div>
     </div>
 </header>
@@ -89,63 +86,3 @@ into the {body} of the default.hbs template --}}
 
 {{> site-header}}
 
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-{{#contentFor "scripts"}}
-<script>
-
-
-    // NOTE: Scroll performance is poor in Safari
-    // - this appears to be due to the events firing much more slowly in Safari.
-    //   Dropping the scroll event and using only a raf loop results in smoother
-    //   scrolling but continuous processing even when not scrolling
-    $(document).ready(function () {
-        
-        var nav = document.querySelector('.site-nav-main .site-nav');
-        var feed = document.querySelector('.custom-post-feed');
-
-        var lastScrollY = window.scrollY;
-        var lastWindowHeight = window.innerHeight;
-        var lastDocumentHeight = $(document).height();
-        var ticking = false;
-
-        function onScroll() {
-            lastScrollY = window.scrollY;
-            requestTick();
-        }
-
-        function onResize() {
-            lastWindowHeight = window.innerHeight;
-            lastDocumentHeight = $(document).height();
-            requestTick();
-        }
-
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(update);
-            }
-            ticking = true;
-        }
-
-        function update() {
-            var trigger = feed.getBoundingClientRect().top + window.scrollY;
-            var progressMax = lastDocumentHeight - lastWindowHeight;
-
-            // show/hide nav
-            if (lastScrollY >= trigger - 20) {
-                nav.classList.add('fixed-nav-active');
-            } else {
-                nav.classList.remove('fixed-nav-active');
-            }
-
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onResize, false);
-
-        update();
-
-    });
-</script>
-
-{{/contentFor}}
