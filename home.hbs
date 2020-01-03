@@ -20,7 +20,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
     <div class="inner posts">
-        <div class="post-feed">
+        <div class="custom-post-feed">
             {{#get "posts" limit="1"}}
                 {{#foreach posts}}
 
@@ -93,6 +93,7 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "scripts"}}
 <script>
 
+
     // NOTE: Scroll performance is poor in Safari
     // - this appears to be due to the events firing much more slowly in Safari.
     //   Dropping the scroll event and using only a raf loop results in smoother
@@ -100,7 +101,7 @@ into the {body} of the default.hbs template --}}
     $(document).ready(function () {
         
         var nav = document.querySelector('.site-nav-main .site-nav');
-        var feed = document.querySelector('.post-feed');
+        var feed = document.querySelector('.custom-post-feed');
 
         var lastScrollY = window.scrollY;
         var lastWindowHeight = window.innerHeight;
@@ -146,4 +147,5 @@ into the {body} of the default.hbs template --}}
 
     });
 </script>
+
 {{/contentFor}}

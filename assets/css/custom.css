@@ -22,10 +22,15 @@ p.home-intro {
     letter-spacing: -.25px;
 }
 
+.js-allowed {
+    display: none;
+}
+
 
 /*Logo*/
 .site-nav-logo {
     padding: 0;
+    margin-right: 16px;
 }
 
 .site-nav-logo img {
@@ -37,6 +42,11 @@ p.home-intro {
 }
 
 /*Header & NAV*/
+
+.home-template .site-nav-main .site-nav {
+    opacity: 1;
+}
+
 .site-header-background,
 .site-nav-main {
     background: #fff;
@@ -44,7 +54,11 @@ p.home-intro {
 }
 
 .site-header-background:not(.responsive-header-img) .site-nav-left-wrapper:after, .site-nav-main .site-nav-left-wrapper:after {
-    background: unset;
+    display: none;
+}
+
+.site-nav-content {
+    width: 100%;
 }
 
 .nav li a { 
@@ -54,12 +68,72 @@ p.home-intro {
     color: #888;
 }
 
+
 .social-link svg,
 .rss-button svg {
     fill: #000;
 }
 
+/*Search*/
+
+form#search-form {
+    display: flex;
+    border: 1px solid #C7D0D4;
+    border-radius: 5px;
+    margin: 0;
+}
+
+input#search {
+    position: relative;
+    display: flex;
+    width: 50px;
+    padding: 3px 10px;
+    cursor: text;
+    border: none;
+}
+
+input#search:focus { 
+    width: 150px;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+div#search-result {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+}
+div#search-result a{
+    padding: 5px 15px;
+    width: 100%;
+    font-size: 0.85em;
+    border-bottom: 1px solid #888;
+    align-self: center;
+}
+
+button#search-btn {
+    background-color: unset;
+    width: 30px;
+    height: 30px;
+}
+
+#search-btn svg {
+    width: 20px;
+    fill: #000;
+}
+#search-btn svg:hover {
+    fill: #888;
+}
+
 /* Home */
+
+.site-home-header .site-header-background {
+    margin-top: 50px;
+}
+
 .featured-posts-header {
     margin-left: 20px;
     width: 100%;
@@ -92,6 +166,19 @@ p.home-intro {
 .post-card-excerpt {
     font-family: unset;
 }
+
+.custom-post-feed {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+    padding: 50px 0 0;
+    padding: 40px 0 5vw;
+
+}
+
+
+
 
 
 

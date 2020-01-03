@@ -11,6 +11,16 @@
                     {{navigation}}
                 {{/if}}
             </div>
+
+            {{!-- Show search only if javascript is allowed --}}
+            <div class="nav-search js-allowed">
+                <form id="search-form">
+                    <input id="search" placeholder="Etsi"></input>
+                    <button id="search-btn" type="submit" onclick="changeFocus()">{{> "icons/search"}}</button>
+                </form>
+            </div>
+            <div class="nav-search js-deny"></div>
+
         </div>
     </div>
     <div class="site-nav-right">
@@ -35,3 +45,4 @@
         {{/if}}
     </div>
 </nav>
+<div id="search-result"></div>
