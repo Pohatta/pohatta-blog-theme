@@ -6,4 +6,4 @@ The name of my blog is P.Ohatta and you might see the live version of the theme 
 
 # Purpose
 
-Just trying to learn about Ghost.
+Just trying to learn Ghost.

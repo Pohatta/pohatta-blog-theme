@@ -106,7 +106,7 @@ input#search {
     background-color: unset;
     position: relative;
     display: flex;
-    width: 150px;
+    width: 175px;
     padding: 3px 10px;
     cursor: text;
     border: none;
@@ -115,7 +115,7 @@ input#search {
 
 @media (max-width: 500px) {
     input#search {
-        width: 75px;
+        width: 100px;
     }
 }
 
@@ -128,7 +128,7 @@ div#search-result {
 div#search-result a{
     padding: 5px 15px;
     width: 100%;
-    font-size: 0.85em;
+    font-size: 0.9em;
     border-bottom: 1px solid #888;
     align-self: center;
 }
