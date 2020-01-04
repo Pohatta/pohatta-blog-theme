@@ -1,6 +1,6 @@
 # Pohatta
 
-The name of my blog is P.Ohatta, hence the theme name. Forked from default theme Casper.
+The name of my blog is P.Ohatta and you can see the live version [here](https://pohatta.com/).
 
 &nbsp;
 
