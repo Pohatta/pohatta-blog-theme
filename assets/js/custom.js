@@ -16,4 +16,19 @@ window.onload = function() {
     for (var i = 0; i < images.length; i++) {
         images[i].setAttribute('src',images[i].getAttribute('data-src'));
     }
+
+    //Hide social menu nav in ie, breaks the site otherwise 
+    //Detect if ie: https://stackoverflow.com/questions/19999388/check-if-user-is-using-ie
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+    {
+        var rightNav = document.querySelectorAll('.site-nav-right');
+        if(rightNav) {
+            rightNav[0].style.display = 'none';
+        }
+    }
+
 };
+
