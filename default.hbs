@@ -125,6 +125,7 @@
     {{!-- Content API (used for ghost-search) --}}
     <script src="https://unpkg.com/@tryghost/content-api@1.3.5/umd/content-api.min.js"></script>
 
+    {{!-- This has the ghost-search cofiguration: https://www.hauntedthemes.com/ghost-search-our-first-open-source-library-for-ghost/ --}}
     {{> search}}
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}

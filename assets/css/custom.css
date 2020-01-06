@@ -18,6 +18,15 @@ body {
     letter-spacing: -0.75px;
 }
 
+.under-construction {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    z-index: 999;
+    text-align: center;
+    color: #f00;
+}
+
 p.home-intro {
     letter-spacing: -.25px;
 }
@@ -167,13 +176,16 @@ button#search-btn {
     font-weight: 600;
 }
 
+.post-card-image {
+    background: #888 no-repeat 50%; 
+}
+
 @media (max-width: 500px) {
     .featured-posts-header {
         font-size: 2.0rem;
         margin-top: 0px;
     }
 }
-
 
 @media (min-width: 795px) {
     .post-card-large .post-card-image-link {
@@ -210,6 +222,10 @@ li.post-list-li a,
 /*Posts*/
 .post-full-content {
     font-family: unset;
+}
+
+.post-full-content h2 {
+    margin: .5em 0 .5em;
 }
 
 .post-full-content a {
