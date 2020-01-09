@@ -6,12 +6,12 @@
     {{> site-header}}
     {{> header-background background=feature_image}} {{!--Special header-image.hbs partial to generate the background image--}}
         <div class="inner site-header-content">
-            <h1 class="site-title">{{name}}</h1>
+            <h1 class="site-title-tag">{{name}}</h1>
             <h2 class="site-description">
                 {{#if description}}
                 {{description}}
                 {{else}}
-                A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
+                {{plural ../pagination.total empty=(t "A collection of posts") singular=(t "A collection of 1 post") plural=(t "A collection of % posts") }}
                 {{/if}}
             </h2>
         </div>

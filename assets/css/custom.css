@@ -177,7 +177,8 @@ button#search-btn {
 }
 
 .post-card-image {
-    background: #888 no-repeat 50%; 
+    background: #888 no-repeat 50%;
+    display: none; 
 }
 
 @media (max-width: 500px) {
@@ -266,6 +267,16 @@ li.post-list-li a,
 
 .read-next .static-avatar {
     border-color: #fff;
+}
+
+/*Tag*/
+.site-title-tag {
+    z-index: 10;
+    margin: 0 0 0 -2px;
+    padding: 0;
+    font-size: 3.5rem;
+    line-height: 1em;
+    font-weight: 600;
 }
 
 /*Footer*/

@@ -17,6 +17,12 @@ window.onload = function() {
         images[i].setAttribute('src',images[i].getAttribute('data-src'));
     }
 
+    //Show post-card-images
+    var postCardImages = document.querySelectorAll('.post-card-image');
+    for (var i = 0; i < postCardImages.length; i++) {
+        postCardImages[i].style.display = 'block';
+    }
+
     //Hide social menu nav in ie, breaks the site otherwise 
     //Detect if ie: https://stackoverflow.com/questions/19999388/check-if-user-is-using-ie
     var ua = window.navigator.userAgent;
