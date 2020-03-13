@@ -108,8 +108,8 @@ into the {body} of the default.hbs template --}}
                     {{content}}
                     <p>
                         <em>
-                            Kommentointi aukeaa joskus tulevaisuudessa. Nyt otan risut ja ruusut enemmän
-                            kuin mielelläni vastaan sähköpostilla. Helpoiten se onnistuu <a href="https://www.pohatta.com/sisapiiri" target="_blank" >sisäpiirin </a>
+                            Kuulisin mielelläni mielipiteesi artikkelista esimerkiksi kommenttien kautta.  
+                            Otan risut ja ruusut vastaan myös sähköpostilla. Helpoiten se onnistuu <a href="https://www.pohatta.com/sisapiiri" target="_blank" >sisäpiirin </a>
                             kautta ja samalla pysyt kartalla epäsäännöllisesti ilmestyvistä artikkeleista.<br></br> 
                             
                             Saatavilla myös 
@@ -126,9 +126,12 @@ into the {body} of the default.hbs template --}}
             {{/if}}
 
             
-            {{!-- <section class="post-full-comments">
-			    <section id="isso-thread" data-title="Isso Test"></section>
-            </section> --}}
+            <section class="post-full-comments">
+			    <div class="post-footer">
+                    <section id="isso-thread"></section>
+                    <script data-isso="https://comments.pohatta.com/" src="https://comments.pohatta.com/js/embed.min.js"></script>
+                </div>
+            </section>
            
 
         </article>
