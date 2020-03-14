@@ -298,6 +298,11 @@ li.post-list-li a,
     border: 1px solid #757575;
 }
 
+#isso-thread .textarea:focus {
+    background: unset !important;
+    border: 1px solid #757575 !important;
+}
+
 .isso-postbox > .form-wrapper > .auth-section .input-wrapper input {
     background: unset !important;
     border: 1px solid #757575 !important;
@@ -308,6 +313,15 @@ li.post-list-li a,
     border: 1px solid #0086ce !important;
     background-color: #0086ce !important;
     color: #ffffff;  
+}
+
+.isso-postbox > .form-wrapper .textarea, .isso-postbox > .form-wrapper .preview {
+    background-color: unset !important;
+}
+
+.isso-postbox > .form-wrapper .preview {
+    background-color: unset !important;
+    background: repeating-linear-gradient( -45deg, #757575, #757575 10px, rgba(177, 177, 177, 0) 10px, rgba(177, 177, 177, 0) 20px ) !important;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
