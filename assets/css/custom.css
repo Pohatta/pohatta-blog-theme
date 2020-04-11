@@ -165,6 +165,54 @@ button#search-btn {
     margin-top: 55px;
 }
 
+section.featured-custom {
+    width: 90%;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e9eef1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+    margin: -15px auto 40px auto;
+}
+
+.featured-txt-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+p.featured-txt {
+    color: #d3d3d3;
+    padding-left: 10px;
+}
+
+.featured-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+img.featured-logo {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    border-radius: 3px;
+}
+
+@media (max-width: 800px) {
+    img.featured-logo {
+        height: 35px;
+    }
+}
+
+@media (max-width: 500px) {
+    img.featured-logo {
+        height: 30px;
+    }
+}
+
+
 .featured-posts-header {
     margin: auto;
     width: 90%;
