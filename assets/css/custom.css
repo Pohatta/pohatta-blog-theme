@@ -269,6 +269,11 @@ li.post-list-li a,
 }
 
 /*Posts*/
+
+.post-full-title {  
+    font-size: 3rem;
+}
+
 .post-full-content {
     font-family: unset;
 }
